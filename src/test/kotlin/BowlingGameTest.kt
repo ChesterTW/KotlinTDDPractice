@@ -10,11 +10,24 @@ class BowlingGameTest {
     @Test
     fun all_zero(){
         rolls(20, 0)
-        val score = bowlingGame.score()
-        scoreShouldBe(score)
+        scoreShouldBe(0)
     }
 
-    private fun scoreShouldBe(score: Any) {
+    @Test
+    fun all_three(){
+        rolls(20, 3)
+        scoreShouldBe(60)
+    }
+
+    @Test
+    fun one_spare(){
+        rolls(1, 3)
+        rolls(1, 7)
+        rolls(18, 3)
+        scoreShouldBe(67)
+    }
+
+    private fun scoreShouldBe(score: Int) {
         Assertions.assertEquals(score, bowlingGame.score())
     }
 
