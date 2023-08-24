@@ -10,10 +10,10 @@ class BowlingGame {
         var score = 0
         var rollIndex = 0
         for (i in 1 .. 10){
-            if(list[rollIndex] == 10){
+            if(isStrike(rollIndex)){
               score += 10 + list[rollIndex+1] + list[rollIndex+2]
               rollIndex += 1
-            } else if(list[rollIndex] + list[rollIndex+1] == 10){
+            } else if(isSpare(rollIndex)){
                 score += 10 + list[rollIndex + 2]
                 rollIndex += 2
             }else{
@@ -25,4 +25,8 @@ class BowlingGame {
 
         return score
     }
+
+    private fun isSpare(rollIndex: Int) = list[rollIndex] + list[rollIndex + 1] == 10
+
+    private fun isStrike(rollIndex: Int) = list[rollIndex] == 10
 }

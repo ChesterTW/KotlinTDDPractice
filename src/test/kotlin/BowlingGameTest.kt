@@ -34,6 +34,12 @@ class BowlingGameTest {
         scoreShouldBe(70)
     }
 
+    @Test
+    fun all_strike(){
+        rolls(12, 10)
+        scoreShouldBe(300)
+    }
+
     private fun scoreShouldBe(score: Int) {
         Assertions.assertEquals(score, bowlingGame.score())
     }
